@@ -48,8 +48,8 @@ func (b *Block) recalculateHash() {
 
 func (b Block) String() string {
 	return "Hash: " + b.hash +
-	", Previous hash: " + b.previousHash +
-	", Timestamp: " + b.timestamp.String() +
-	", Nonce: " + strconv.Itoa(b.nonce) +
-	", Data: " + b.data
+		", Previous hash: " + b.previousHash +
+		", Timestamp: " + b.timestamp.String() +
+		", Nonce: " + strconv.Itoa(b.nonce) +
+		", Data: " + b.data
 }
