@@ -2,12 +2,12 @@ package goblockchain
 
 import (
 	"fmt"
-	"strings"
 	"strconv"
+	"strings"
 )
 
 type Blockchain struct {
-	blocks []Block
+	blocks     []Block
 	difficulty int
 }
 
@@ -24,9 +24,9 @@ func (b Blockchain) String() string {
 }
 
 func (b *Blockchain) IsValid() bool {
-	for i := 0; i < len(b.blocks) - 1; i++ {
+	for i := 0; i < len(b.blocks)-1; i++ {
 		currentBlock := b.blocks[i]
-		nextBlock := b.blocks[i + 1]
+		nextBlock := b.blocks[i+1]
 
 		if nextBlock.hash != calculateHash(nextBlock.previousHash, nextBlock.timestamp, nextBlock.nonce, nextBlock.data) {
 			return false
@@ -50,7 +50,7 @@ func NewBlockchain(difficulty int) Blockchain {
 }
 
 func (b *Blockchain) LastBlock() Block {
-	return b.blocks[len(b.blocks) - 1]
+	return b.blocks[len(b.blocks)-1]
 }
 
 func (b *Blockchain) MineBlock(data string) {
@@ -63,7 +63,7 @@ func (b *Blockchain) MineBlock(data string) {
 
 	newBlock := NewBlock(previousHash, data)
 
-	for newBlock.hash[0:b.GetDifficulty()] != b.ExpectedHashPrefix() {
+	for !strings.HasPrefix(newBlock.hash, b.ExpectedHashPrefix()) {
 		newBlock.recalculateHash()
 	}
 
