@@ -1,9 +1,10 @@
 package main
 
 import (
-	"./goblockchain"
 	"fmt"
 	"strconv"
+
+	"github.com/kimtg/goblockchain/goblockchain"
 )
 
 func main() {
@@ -33,6 +34,6 @@ func main() {
 	fmt.Println("Is blockchain valid? " + strconv.FormatBool(bc.IsValid()))
 	fmt.Println()
 
-	fmt.Println("Printing blockchain...");
+	fmt.Println("Printing blockchain...")
 	fmt.Println(bc)
 }
