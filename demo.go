@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/kimtg/goblockchain/goblockchain"
+	"goblockchain"
 )
 
 func main() {
